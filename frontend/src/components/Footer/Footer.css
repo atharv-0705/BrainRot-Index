@@ -1,0 +1,25 @@
+.site-footer {
+  padding: 28px 0 40px;
+  border-top: 1px solid var(--color-border);
+  transition: border-color var(--theme-speed) var(--ease-out);
+}
+
+.site-footer__inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.site-footer__credit {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+@media (max-width: 560px) {
+  .site-footer__inner {
+    flex-direction: column;
+  }
+}

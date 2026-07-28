@@ -1,0 +1,194 @@
+.hero {
+  padding: 72px 0 56px;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero__eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.hero__title {
+  font-size: clamp(2.6rem, 5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__subtitle {
+  margin-top: 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.hero__description {
+  margin-top: 14px;
+  max-width: 46ch;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  font-size: 1rem;
+}
+
+.hero__factors {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 26px 0 0;
+  padding: 0;
+}
+
+.hero__factor {
+  transition: background-color var(--theme-speed) var(--ease-out), border-color var(--theme-speed) var(--ease-out), color var(--theme-speed) var(--ease-out);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--color-border);
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+
+.hero__factor svg {
+  color: var(--color-secondary);
+}
+
+.hero__cta {
+  display: inline-block;
+  margin-top: 32px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: white;
+  background: var(--gradient-brand);
+  padding: 14px 30px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+}
+
+.hero__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Pulse dial ---------------------------------------------------------------- */
+
+.pulse-dial {
+  position: relative;
+  padding: 40px 32px 34px;
+  overflow: hidden;
+}
+
+.pulse-dial__ring {
+  position: absolute;
+  inset: -40% -20% auto auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 30%, transparent), transparent 70%);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.pulse-dial__wave {
+  position: relative;
+  width: 100%;
+  height: 110px;
+}
+
+.pulse-dial__wave-path {
+  stroke-dasharray: 480;
+  stroke-dashoffset: 480;
+  animation: drawPulse 3.2s var(--ease-out) infinite;
+}
+
+.pulse-stop {
+  transition: stop-color var(--theme-speed) var(--ease-out);
+}
+
+.pulse-stop--1 {
+  stop-color: var(--color-primary);
+}
+
+.pulse-stop--2 {
+  stop-color: var(--color-secondary);
+}
+
+.pulse-stop--3 {
+  stop-color: var(--color-accent);
+}
+
+@keyframes drawPulse {
+  0% {
+    stroke-dashoffset: 480;
+  }
+  60% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -480;
+  }
+}
+
+.pulse-dial__readout {
+  position: relative;
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pulse-dial__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.pulse-dial__value {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--color-secondary);
+}
+
+@media (max-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__visual {
+    order: -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    padding: 48px 0 40px;
+  }
+
+  .hero__description {
+    max-width: none;
+  }
+}

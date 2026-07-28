@@ -1,0 +1,51 @@
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: var(--orb-opacity);
+  transition: opacity var(--theme-speed) var(--ease-out), background var(--theme-speed) var(--ease-out);
+  animation: drift 16s ease-in-out infinite;
+}
+
+.aurora__orb--a {
+  top: -10%;
+  left: -8%;
+  width: 46vw;
+  height: 46vw;
+  max-width: 620px;
+  max-height: 620px;
+  background: var(--color-primary);
+  animation-duration: 18s;
+}
+
+.aurora__orb--b {
+  top: 30%;
+  right: -12%;
+  width: 38vw;
+  height: 38vw;
+  max-width: 520px;
+  max-height: 520px;
+  background: var(--color-accent);
+  animation-duration: 22s;
+  animation-delay: -6s;
+}
+
+.aurora__orb--c {
+  bottom: -14%;
+  left: 24%;
+  width: 40vw;
+  height: 40vw;
+  max-width: 560px;
+  max-height: 560px;
+  background: var(--color-secondary);
+  animation-duration: 20s;
+  animation-delay: -3s;
+}
